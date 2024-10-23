@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - excretory</title>
+        {% else %}
+        <title>Welcome to exy homepage</title>
+        {% endif %}
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/index">Home</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <hr />
+        <main>{% block content %} {% endblock %}</main>
+    </body>
+</html>
