@@ -12,12 +12,23 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="/index">Home</a>
+                        <a href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('login') }}">Sing In</a>
                     </li>
                 </ul>
             </nav>
         </header>
         <hr />
-        <main>{% block content %} {% endblock %}</main>
+        <main>
+            {% with messages = get_flashed_messages() %} {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %} {% endwith %} {% block content %} {% endblock %}
+        </main>
     </body>
 </html>
