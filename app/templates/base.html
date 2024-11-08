@@ -15,7 +15,11 @@
                         <a href="{{ url_for('index') }}">Home</a>
                     </li>
                     <li>
+                        {% if current_user.is_anonymous %}
                         <a href="{{ url_for('login') }}">Sing In</a>
+                        {% else %}
+                        <a href="{{ url_for('logout') }}">Exit</a>
+                        {% endif %}
                     </li>
                 </ul>
             </nav>
