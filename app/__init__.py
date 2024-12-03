@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 import logging
 from logging.handlers import SMTPHandler, RotatingFileHandler
+from flask_mail import Mail
 import os
 
 app = Flask(__name__)
@@ -38,5 +39,7 @@ if not app.debug:
     app.logger.addHandler(file_handler)
     app.logger.setLevel(logging.INFO)
     app.logger.info('App startup')
+
+mail = Mail(app)
 
 from app import routes, models, errors
